@@ -1,27 +1,29 @@
 import {
   Box,
-  FormFieldGroup,
+  Button,
   Select,
   TextArea,
   TextField,
 } from "@stripe/ui-extension-sdk/ui";
+import { useState } from "react";
 
-type Props = {};
-
-const RequestParametersForm = ({}: any) => {
+const RequestParametersForm = () => {
+  const [method, setMethod] = useState<string>("GET");
+  const [path, setPath] = useState<string>("/");
   // TODO: try form validation
   return (
     <Box css={{ height: "fill", stack: "y", distribute: "space-between" }}>
       <Select
-        css={{ width: "fit", marginY: "medium" }}
+        css={{ width: "fit" }}
         name="select-method"
         label="Method"
+        defaultValue={method}
         onChange={(e) => {
-          // TODO: track form state
+          setMethod(e.target.value);
         }}
       >
-        <option value="">Choose an option</option>
-        <option value="get">GET</option>
+        <option value="">Choose an Option</option>
+        <option value="GET">GET</option>
         {/* <option value='post'>POST</option>
         <option value='put'>PUT</option>
         <option value='delete'>DELETE</option>
@@ -31,8 +33,10 @@ const RequestParametersForm = ({}: any) => {
         <TextField
           label="URL"
           placeholder="URL"
+          defaultValue={path}
           onChange={(e) => {
             // TODO: track form state
+            setPath(e.target.value);
           }}
         />
       </Box>
@@ -47,6 +51,7 @@ const RequestParametersForm = ({}: any) => {
           }}
         />
       </Box>
+      <Button onPress={() => {}}></Button>
     </Box>
   );
 };

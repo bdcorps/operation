@@ -1,13 +1,10 @@
 import {
   Box,
   Button,
+  ButtonGroup,
   FocusView,
   FormFieldGroup,
-  TextArea,
-  TextField,
   Icon,
-  Select,
-  ButtonGroup,
 } from "@stripe/ui-extension-sdk/ui";
 import { useState } from "react";
 import RequestParameters from "../components/RequestParameters";
